@@ -1,0 +1,152 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="pharm.master.cs" Inherits="Pharmacy.pharm" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+         <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+
+
+    <style>
+        @media only screen and (min-width: 768px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+        .auto-style1 {
+            height: 30px;
+            width: 28px;
+        }
+    </style>
+
+    <script>
+        $('.dropdown-toggle').click(function (e) {
+            if ($(document).width() > 768) {
+                e.preventDefault();
+
+                var url = $(this).attr('href');
+
+                if (url !== '#') {
+                    window.location.href = url;
+                }
+
+            }
+        });
+
+    </script>
+</head>
+<body class=" container-fluid bg-light">
+    <form id="form1" runat="server">
+        <nav class="navbar  navbar-inverse navbar-expand-sm bg-dark">
+          <%--  <div class="container-fluid">--%>
+                <div class="navbar-header">
+                   <a class="navbar-brand text-white" href="Dashboard.aspx">
+                        <img src="images/RX3.png" style="width:50px;height:50px" />
+                   </a>
+                    <span><asp:LinkButton runat="server" Text="Logout" OnClick="Logoutbutton_Click" CssClass="btn btn-primary"></asp:LinkButton></span>
+                    <span><asp:Label runat="server" ID="LoginTimeLabel"></asp:Label></span>
+                </div>
+               
+                <div>
+          
+              
+            </div>
+            </nav>        <p class="bg-dark"></p>
+      <div class="row">
+            <div class="col-sm-2">
+                <nav class="navbar bg-dark" style=" height:inherit;width:150px;"> 
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+           <a  class="nav-link text-white" href="Dashboard.aspx">
+                                <i class="fa fa-desktop"></i>
+                          Dashboard
+                       </a>
+
+
+                   </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
+                            <i class="fa fa-list"></i>
+                            Medicine</a>
+                           
+
+
+                       <div class="dropdown-menu" style="font-size:small">
+                           <a class="dropdown-item" href="Brand.aspx">Brand</a>
+                           <a class="dropdown-item" href="Category.aspx">Medicine Category</a>
+                           <a class="dropdown-item" href="List.aspx">Medicine List</a>
+                       </div>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
+                            <i class="fa fa-user-plus"></i>
+                            Users</a>
+                        <div class="dropdown-menu" style="font-size:small">
+                            <a href="Customers.aspx" class="dropdown-item">Customers</a>
+                            <a href="Suppliers.aspx" class="dropdown-item">Suppliers</a>
+                            <a href="User.aspx" class="dropdown-item">Staff</a>
+                        </div>              
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="Purchases.aspx">
+                            <i class="fa fa-cart-plus"></i>
+                            Purchase</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#" >
+                            <i class="fa fa-shopping-cart"></i>
+                           POS</a>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
+                            <i class="fa fa-edit"></i>
+                            Sales</a>
+                        <div class="dropdown-menu" style="font-size:small">
+                            <a href="Invoice.aspx" class="dropdown-item">Invoices</a>
+                            <a href="Payments.aspx" class="dropdown-item">Payments</a>
+                        </div>
+                    </li>
+
+
+                   <li class="nav-item dropdown">
+                       <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
+                           <i class="fa fa-line-chart"></i>
+                           Reports</a>
+                       <div class="dropdown-menu"  style="font-size:small">
+                           <a class="dropdown-item" href="Inventory-report.aspx">Inventory Report</a>
+                           <a href="Purchase-report.aspx" class="dropdown-item">Purchase Report</a>
+                           <a href="Sales-Report.aspx" class="dropdown-item">Sales Report</a>
+                       </div>
+                   </li>
+                </ul> 
+   
+            </nav>
+               </div>
+         
+
+            <div class="col-sm-9">
+                             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            </div>
+         </div>
+    </form>
+</body>
+</html>
